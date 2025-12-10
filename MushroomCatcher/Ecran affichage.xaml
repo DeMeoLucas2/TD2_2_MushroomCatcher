@@ -6,10 +6,17 @@
         xmlns:local="clr-namespace:MushroomCatcher"
         mc:Ignorable="d"
         Title="Menu du jeux" Height="600" Width="800">
-    
-    
+
+
     <Window.Background>
-        <ImageBrush ImageSource="/Menu.png"/>
+        <ImageBrush ImageSource="Image/Menu.png"/>
     </Window.Background>
+
+    <Grid>
+        <Image/>
+        <Image Margin="10,448,590,36" Source="/Image/Jouer.png" Stretch="Fill" Height="100" Width="200"/>
+        <Image Margin="276,448,355,36" Source="/Image/Credit.png" Stretch="Fill" Height="100"/>
+        <Image Margin="512,448,88,36" Source="/Image/Quitter.png" Stretch="Fill" Height="100" Width="200"/>
+    </Grid>
 
 </Window>
