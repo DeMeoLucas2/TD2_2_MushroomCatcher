@@ -16,7 +16,7 @@
             <Image Source="/Image/Jouer.png"/>
         </Button>
 
-        <Button x:Name="ButCredit" HorizontalAlignment="Left" Margin="300,500,0,0" VerticalAlignment="Top" Background="{x:Null}" Click="ButCredit_Click" Width="180" Height="51" BorderBrush="{x:Null}">
+        <Button x:Name="ButCredit" HorizontalAlignment="Left" Margin="300,500,0,0" VerticalAlignment="Top" Background="#00000000" Click="ButCredit_Click" Width="180" Height="51" BorderBrush="{x:Null}">
             <Image Source="/Image/Credit.png"/>
         </Button>
 

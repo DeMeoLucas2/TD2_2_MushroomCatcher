@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MushroomCatcher"
         mc:Ignorable="d"
-        Height="450" Width="800">
+        Height="600" Width="800">
     <Grid>
         
+        <Grid.Background>
+            <ImageBrush ImageSource="/Image/Menu.png"/>
+        </Grid.Background>
+
+        <Button x:Name="ButRetourQuitter" Content="Retour" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="ButRetourQuitter_Click"/>
+
     </Grid>
 </UserControl>

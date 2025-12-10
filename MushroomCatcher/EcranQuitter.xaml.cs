@@ -23,5 +23,10 @@ namespace MushroomCatcher
         {
             InitializeComponent();
         }
+
+        private void ButRetourQuitter_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
