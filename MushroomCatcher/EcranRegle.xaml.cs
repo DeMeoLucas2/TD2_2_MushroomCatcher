@@ -15,28 +15,13 @@ using System.Windows.Shapes;
 namespace MushroomCatcher
 {
     /// <summary>
-    /// Logique d'interaction pour Ecran_affichage.xaml
+    /// Logique d'interaction pour EcranRegle.xaml
     /// </summary>
-    public partial class Ecran_affichage : UserControl // <- C'est la bonne classe de base
+    public partial class EcranRegle : UserControl
     {
-        public Ecran_affichage()
+        public EcranRegle()
         {
             InitializeComponent();
-        }
-
-        private void ButJouer_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ButQuitter_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void ButCredit_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -5,12 +5,26 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              Height="600" Width="800">
+
     <Grid x:Name="Ecran_affichage1">
+
         <Grid.Background>
             <ImageBrush ImageSource="/Image/Menu.png"/>
         </Grid.Background>
-        <Image Margin="18,440,590,36" Source="/Image/Jouer.png"/>
-        <Image Margin="276,448,355,36" Source="/Image/Credit.png"/>
-        <Image Margin="512,448,88,36" Source="/Image/Quitter.png"/>
+
+        <Button x:Name="ButJouer" HorizontalAlignment="Left" Margin="90,500,0,0" VerticalAlignment="Top" Background="Transparent" Click="ButJouer_Click" Width="180" Height="51">
+            <Image Source="/Image/Jouer.png"/>
+        </Button>
+
+        <Button x:Name="ButCredit" HorizontalAlignment="Left" Margin="300,500,0,0" VerticalAlignment="Top" Background="Transparent" Click="ButCredit_Click" Width="180" Height="51">
+            <Image Source="/Image/Credit.png"/>
+        </Button>
+
+        <Button x:Name="ButQuitter" HorizontalAlignment="Left" Margin="550,500,0,0" VerticalAlignment="Top" Background="Transparent" Click="ButQuitter_Click" Width="180" Height="51">
+            <Image Source="/Image/Quitter.png"/>
+
+        </Button>
+
     </Grid>
+
 </UserControl>
