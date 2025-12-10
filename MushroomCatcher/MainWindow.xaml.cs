@@ -19,6 +19,13 @@ namespace MushroomCatcher
         public MainWindow()
         {
             InitializeComponent();
+            AfficheDemarrage();
+        }
+
+        private void AfficheDemarrage()
+        {
+            Ecran_affichage  uc = new Ecran_affichage(); // crée et charge l'écran de démarrage
+            ZoneJeu.Content = uc; // associe l'écran au conteneur             
         }
     }
 }
