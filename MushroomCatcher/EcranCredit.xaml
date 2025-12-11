@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Height="450" Width="800">
     <Grid>
-        <Button x:Name="ButRetourCredit" Content="Retour" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="ButRetourCredit_Click"/>
+        <Button x:Name="ButRetourCredit" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="180" Height="51" Click="ButRetourCredit_Click">
+            <Image Source="/Image/Retour.png"/>
+        </Button>
     </Grid>
 </UserControl>
