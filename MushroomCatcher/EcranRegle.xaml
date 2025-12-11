@@ -15,5 +15,22 @@
         <Button x:Name="ButRetourRegle" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="180" Height="51" Click="ButRetourRegle_Click">
             <Image Source="/Image/Retour.png"/>
         </Button>
+
+        <Image Margin="140,200,140,200" Source="/Image/RRRR.png" Stretch="Fill" Width="520" Height="200"/>
+
+        <Label HorizontalAlignment="Center" VerticalAlignment="Center" Height="115" Width="457">
+            <TextBlock x:Name="TextRegle" Height="115" Width="457" FontSize="16">
+                Tuer des champignons
+            <LineBreak />
+                Récupérer les potions laissées par les champignons tués
+            <LineBreak />
+                Vendre les potions
+            <LineBreak />
+                Respecter un quota de potions à vendre
+            <LineBreak />
+                Ne pas mourir de la main des champignons
+            </TextBlock>
+        </Label>
+
     </Grid>
 </UserControl>
