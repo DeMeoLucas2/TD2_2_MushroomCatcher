@@ -35,24 +35,24 @@ namespace MushroomCatcher
         {
             EcranRegle uc = new EcranRegle(); // crée et charge l'écran de règles
             ZoneJeu.Content = uc; // associe l'écran au conteneur
-            uc.ButRetourRegle.Click += AfficheDemarrage; // retourne à l'écran de démarrage
+            uc.ButRetourRegle.Click += AfficheRetour; // retourne à l'écran de démarrage
         }
 
         private void AfficherCredit(object sender, RoutedEventArgs e)
         {
             EcranCredit uc = new EcranCredit(); // crée et charge l'écran de crédit
             ZoneJeu.Content = uc; // associe l'écran au conteneur
-            uc.ButRetourCredit.Click += AfficheDemarrage; // retourne à l'écran de démarrage
+            uc.ButRetourCredit.Click += AfficheRetour; // retourne à l'écran de démarrage
         }
 
         private void AfficherQuitter(object sender, RoutedEventArgs e)
         {
             EcranQuitter uc = new EcranQuitter(); // crée et charge l'écran pour quitter
             ZoneJeu.Content = uc; // associe l'écran au conteneur
-            uc.ButRetourQuitter.Click += AfficheDemarrage; // retourne à l'écran de démarrage
+            uc.ButRetourQuitter.Click += AfficheRetour; // retourne à l'écran de démarrage
         }
 
-        private void AfficheDemarrage(object sender, RoutedEventArgs e)
+        private void AfficheRetour(object sender, RoutedEventArgs e)
         {
 
             Ecran_affichage uc = new Ecran_affichage(); // crée et charge l'écran de démarrage
