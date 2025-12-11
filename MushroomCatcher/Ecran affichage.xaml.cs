@@ -17,7 +17,7 @@ namespace MushroomCatcher
     /// <summary>
     /// Logique d'interaction pour Ecran_affichage.xaml
     /// </summary>
-    public partial class Ecran_affichage : UserControl // <- C'est la bonne classe de base
+    public partial class Ecran_affichage : UserControl 
     {
         public Ecran_affichage()
         {

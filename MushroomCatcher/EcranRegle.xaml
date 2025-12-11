@@ -9,7 +9,7 @@
     <Grid>
 
         <Grid.Background>
-            <ImageBrush ImageSource="Fond regle.png"/>
+            <ImageBrush ImageSource="/Image/Fond regle.png"/>
         </Grid.Background>
         
         <Button x:Name="ButRetourRegle" Content="Retour" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="80" Height="30" Click="ButRetourRegle_Click"/>

@@ -26,27 +26,40 @@ namespace MushroomCatcher
         {
             Ecran_affichage  uc = new Ecran_affichage(); // crée et charge l'écran de démarrage
             ZoneJeu.Content = uc; // associe l'écran au conteneur
-            uc.ButJouer.Click += AfficherJeu; // affiche l'écran de jeu
+            uc.ButJouer.Click += AfficherRegle; // affiche l'écran des règles
             uc.ButCredit.Click += AfficherCredit; // affiche l'écran de crédit
             uc.ButQuitter.Click += AfficherQuitter; // affiche l'écran pour quitter
         }
 
-        private void AfficherJeu(object sender, RoutedEventArgs e)
+        private void AfficherRegle(object sender, RoutedEventArgs e)
         {
-            EcranRegle uc = new EcranRegle();
-            ZoneJeu.Content = uc;
+            EcranRegle uc = new EcranRegle(); // crée et charge l'écran de règles
+            ZoneJeu.Content = uc; // associe l'écran au conteneur
+            uc.ButRetourRegle.Click += AfficheDemarrage; // retourne à l'écran de démarrage
         }
 
         private void AfficherCredit(object sender, RoutedEventArgs e)
         {
-            EcranCredit uc = new EcranCredit();
-            ZoneJeu.Content = uc;
+            EcranCredit uc = new EcranCredit(); // crée et charge l'écran de crédit
+            ZoneJeu.Content = uc; // associe l'écran au conteneur
+            uc.ButRetourCredit.Click += AfficheDemarrage; // retourne à l'écran de démarrage
         }
 
         private void AfficherQuitter(object sender, RoutedEventArgs e)
         {
-            EcranQuitter uc = new EcranQuitter();
-            ZoneJeu.Content = uc;
+            EcranQuitter uc = new EcranQuitter(); // crée et charge l'écran pour quitter
+            ZoneJeu.Content = uc; // associe l'écran au conteneur
+            uc.ButRetourQuitter.Click += AfficheDemarrage; // retourne à l'écran de démarrage
+        }
+
+        private void AfficheDemarrage(object sender, RoutedEventArgs e)
+        {
+
+            Ecran_affichage uc = new Ecran_affichage(); // crée et charge l'écran de démarrage
+            ZoneJeu.Content = uc; // associe l'écran au conteneur
+            uc.ButJouer.Click += AfficherRegle; // affiche l'écran des règles
+            uc.ButCredit.Click += AfficherCredit; // affiche l'écran de crédit
+            uc.ButQuitter.Click += AfficherQuitter; // affiche l'écran pour quitter
         }
     }
 }
