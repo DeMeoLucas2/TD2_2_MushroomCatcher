@@ -15,6 +15,10 @@
         <Button x:Name="ButRetourQuitter" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="180" Height="51" Click="ButRetourQuitter_Click">
             <Image Source="/Image/Retour.png"/>
         </Button>
+        
+        <Button x:Name="ButValiderQuitter" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Center" Margin="0,485,0,0" VerticalAlignment="Top" Width="180" Height="51" Click="Button_Click">
+            <Image Source="/Image/Oui.png"/>
+        </Button>
 
     </Grid>
 </UserControl>
