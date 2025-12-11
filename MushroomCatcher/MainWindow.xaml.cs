@@ -24,7 +24,7 @@ namespace MushroomCatcher
 
         private void AfficheDemarrage()
         {
-            Ecran_affichage  uc = new Ecran_affichage(); // crée et charge l'écran de démarrage
+            Ecran_affichage uc = new Ecran_affichage(); // crée et charge l'écran de démarrage
             ZoneJeu.Content = uc; // associe l'écran au conteneur
             uc.ButJouer.Click += AfficherRegle; // affiche l'écran des règles
             uc.ButCredit.Click += AfficherCredit; // affiche l'écran de crédit
@@ -36,6 +36,7 @@ namespace MushroomCatcher
             EcranRegle uc = new EcranRegle(); // crée et charge l'écran de règles
             ZoneJeu.Content = uc; // associe l'écran au conteneur
             uc.ButRetourRegle.Click += AfficheRetour; // retourne à l'écran de démarrage
+            uc.ButOuiRegle.Click += AfficheJeu; // affiche l'écran de jeu
         }
 
         private void AfficherCredit(object sender, RoutedEventArgs e)
@@ -59,6 +60,12 @@ namespace MushroomCatcher
             uc.ButJouer.Click += AfficherRegle; // affiche l'écran des règles
             uc.ButCredit.Click += AfficherCredit; // affiche l'écran de crédit
             uc.ButQuitter.Click += AfficherQuitter; // affiche l'écran pour quitter
+        }
+
+        private void AfficheJeu(object sender, RoutedEventArgs e)
+        {
+            JEU uc = new JEU(); // crée et charge l'écran de démarrage
+            ZoneJeu.Content = uc; // associe l'écran au conteneur
         }
     }
 }

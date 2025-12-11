@@ -18,7 +18,7 @@ namespace MushroomCatcher
     /// <summary>
     /// Logique d'interaction pour JEU.xaml
     /// </summary>
-    public partial class JEU : Window
+    public partial class JEU : UserControl
     {
         private const double VITESSE_DEPLACEMENT = 10;
         public JEU()

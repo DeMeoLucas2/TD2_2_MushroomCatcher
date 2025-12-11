@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Image\Credit.png" />
     <None Remove="Image\Fond regle.png" />
+    <None Remove="Image\Fondcredit.png" />
     <None Remove="Image\Jouer.png" />
     <None Remove="Image\Menu.png" />
     <None Remove="Image\Oui.png" />
@@ -24,6 +25,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\Fond regle.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Fondcredit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\Jouer.png">
