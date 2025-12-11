@@ -9,9 +9,6 @@
     <Grid>
         <Image x:Name="map" Margin="-800,-450,-800,-450" Source="/image_gameplay/map.png" Stretch="Fill"/>
         <Image x:Name="Joueur" Margin="244,246,494,94" Source="/image_gameplay/main_Hero.png" Stretch="Fill"/>
-
-
-
     </Grid>
 </UserControl>
 
