@@ -28,5 +28,10 @@ namespace MushroomCatcher
         {
 
         }
+
+        private void ButOuiRegle_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

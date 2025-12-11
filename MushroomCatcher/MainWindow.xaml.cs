@@ -54,7 +54,6 @@ namespace MushroomCatcher
 
         private void AfficheRetour(object sender, RoutedEventArgs e)
         {
-
             Ecran_affichage uc = new Ecran_affichage(); // crée et charge l'écran de démarrage
             ZoneJeu.Content = uc; // associe l'écran au conteneur
             uc.ButJouer.Click += AfficherRegle; // affiche l'écran des règles
