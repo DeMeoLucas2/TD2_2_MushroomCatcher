@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Image\Boutique.png" />
     <None Remove="Image\Credit.png" />
     <None Remove="Image\Fond regle.png" />
     <None Remove="Image\Fondcredit.png" />
@@ -18,11 +19,20 @@
     <None Remove="Image\Quitter.png" />
     <None Remove="Image\Retour.png" />
     <None Remove="Image\RRRR.png" />
+    <None Remove="Image\Vendre.png" />
     <None Remove="image_gameplay\main_Hero.png" />
     <None Remove="image_gameplay\map.png" />
+    <None Remove="image_potions\potion_bleu.png" />
+    <None Remove="image_potions\potion_jaune.png" />
+    <None Remove="image_potions\potion_rouge.png" />
+    <None Remove="image_potions\potion_vert.png" />
+    <None Remove="image_potions\potion_violet.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Image\Boutique.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Image\Credit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -50,10 +60,28 @@
     <Resource Include="Image\RRRR.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Image\Vendre.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="image_gameplay\main_Hero.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image_gameplay\map.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image_potions\potion_bleu.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image_potions\potion_jaune.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image_potions\potion_rouge.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image_potions\potion_vert.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image_potions\potion_violet.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
