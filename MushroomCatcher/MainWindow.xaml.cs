@@ -64,8 +64,11 @@ namespace MushroomCatcher
 
         private void AfficheJeu(object sender, RoutedEventArgs e)
         {
-            JEU uc = new JEU(); // crée et charge l'écran de démarrage
-            ZoneJeu.Content = uc; // associe l'écran au conteneur
+            JEU jeuWindow = new JEU(); // crée et charge l'écran de démarrage
+            jeuWindow.Show(); // associe l'écran au conteneur
         }
+
+
+
     }
 }

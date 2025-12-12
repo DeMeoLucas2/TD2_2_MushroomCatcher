@@ -12,59 +12,97 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;//a expliquer
 
 namespace MushroomCatcher
 {
     /// <summary>
     /// Logique d'interaction pour JEU.xaml
     /// </summary>
-    public partial class JEU : UserControl
+    public partial class JEU : Window
     {
-        private const double VITESSE_DEPLACEMENT = 10;
+
+        bool goLeft, goRight, goUp, goDown;
+        int playerSpeed = 8;
+        int speed = 12;
+
+        DispatcherTimer gameTimer = new DispatcherTimer();//a expliquer
         public JEU()
         {
-            this.Focus();
+
             InitializeComponent();
+            moove_map.Focus();
+
+            gameTimer.Tick += GameTimerEvent;//a expliquer
+            gameTimer.Interval = TimeSpan.FromMilliseconds(20);//a expliquer
+            gameTimer.Start();//a expliquer
         }
 
-        private void Window_KeyDown(object sender, KeyEventArgs e)
+        private void GameTimerEvent(object? sender, EventArgs e)
         {
-            double currentX = Canvas.GetLeft(Joueur);
-            double currentY = Canvas.GetTop(Joueur);
-            double positionGaucheJoueur = Canvas.GetLeft(Joueur);
+            if (goLeft && Canvas.GetLeft(Player) > 5)
+            {
+                Canvas.SetLeft(Player, Canvas.GetLeft(Player) - playerSpeed);
+            }
+            if (goRight && Canvas.GetLeft(Player) + Player.Width < moove_map.ActualWidth - 5)
+            {
+                Canvas.SetLeft(Player, Canvas.GetLeft(Player) + playerSpeed);
+            }
+
+            // 3. MOUVEMENT HAUT
+            if (goUp && Canvas.GetTop(Player) > 5)
+            {
+                Canvas.SetTop(Player, Canvas.GetTop(Player) - playerSpeed);
+            }
+
+            // 4. MOUVEMENT BAS
+            if (goDown && Canvas.GetTop(Player) + Player.Height < moove_map.ActualHeight - 5)
+            {
+                Canvas.SetTop(Player, Canvas.GetTop(Player) + playerSpeed);
+            }
+        }
+
+        private void KeyIsDown(object sender, KeyEventArgs e)
+        {
             if (e.Key == Key.Left)
             {
-                if (positionGaucheJoueur > 0)
-                {
-                    Canvas.SetLeft(Joueur, positionGaucheJoueur - VITESSE_DEPLACEMENT);
-                }
+                goLeft = true;
             }
-            else if (e.Key == Key.Right)
+            if (e.Key == Key.Right)
             {
-                if (positionGaucheJoueur + Joueur.Width < map.ActualWidth)
-                {
-                    Canvas.SetLeft(Joueur, positionGaucheJoueur + VITESSE_DEPLACEMENT);
-                }
+                goRight = true;
             }
-            else if (e.Key == Key.Up)
+            if (e.Key == Key.Up)
             {
-                // Limite Haut (ne peut pas aller en Y < 0)
-                if (currentY > 0)
-                {
-                    // La position Y diminue quand on monte
-                    Canvas.SetTop(Joueur, currentY - VITESSE_DEPLACEMENT);
-                }
+                goUp = true;
             }
-            else if (e.Key == Key.Down)
+            if (e.Key == Key.Down)
             {
-                // Limite Bas (currentY + hauteur du Joueur ne doit pas dépasser la hauteur du Canvas)
-                if (currentY + Joueur.Height < map.ActualHeight)
-                {
-                    // La position Y augmente quand on descend
-                    Canvas.SetTop(Joueur, currentY + VITESSE_DEPLACEMENT);
-                }
+                goDown = true;
             }
-            e.Handled = true;
+
+        }
+
+        private void KeyIsUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Left)
+            {
+                goLeft = false;
+            }
+            if (e.Key == Key.Right)
+            {
+                goRight = false;
+            }
+            if (e.Key == Key.Up)
+            {
+                goUp = false;
+            }
+            if (e.Key == Key.Down)
+            {
+                goDown = false;
+            }
+
+
         }
     }
 }
