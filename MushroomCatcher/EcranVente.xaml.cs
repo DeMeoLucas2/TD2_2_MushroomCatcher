@@ -15,23 +15,13 @@ using System.Windows.Shapes;
 namespace MushroomCatcher
 {
     /// <summary>
-    /// Logique d'interaction pour EcranQuitter.xaml
+    /// Logique d'interaction pour EcranVente.xaml
     /// </summary>
-    public partial class EcranQuitter : UserControl
+    public partial class EcranVente : UserControl
     {
-        public EcranQuitter()
+        public EcranVente()
         {
             InitializeComponent();
-        }
-
-        private void ButRetourQuitter_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
         }
     }
 }
