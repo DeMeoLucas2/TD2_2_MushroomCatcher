@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MushroomCatcher"
         mc:Ignorable="d"
-        Height="400" Width="450">
+        Height="600" Width="800">
     <Grid>
 
         <Grid.Background>
@@ -16,9 +16,9 @@
             <Image Source="/Image/Retour.png"/>
         </Button>
 
-        <Image Margin="0,255,0,0" Source="/Image/RRRR.png" Stretch="Fill" Width="70" Height="30" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.25"/>
+        <Image Margin="0,480,30,0" Source="/Image/RRRR.png" Stretch="Fill" Width="160" Height="70" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.25"/>
 
-        <Button x:Name="ButVendre" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center"  Margin="0,260,0,0" VerticalAlignment="Top" Width="65" Height="20" Click="ButRetourBoutique_Click">
+        <Button x:Name="ButVendre" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right"  Margin="0,490,35,0" VerticalAlignment="Top" Width="150" Height="50" Click="ButRetourBoutique_Click">
             <Image Source="/Image/Vendre.png"/>
         </Button>
 

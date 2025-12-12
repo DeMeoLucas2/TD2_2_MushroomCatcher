@@ -16,6 +16,7 @@ namespace MushroomCatcher
     /// </summary>
     public partial class MainWindow : Window
     {
+        JEU jeuWindow;
         public MainWindow()
         {
             InitializeComponent();
@@ -55,6 +56,7 @@ namespace MushroomCatcher
 
         private void AfficheRetour(object sender, RoutedEventArgs e)
         {
+            jeuWindow.Hide();
             Ecran_affichage uc = new Ecran_affichage(); // crée et charge l'écran de démarrage
             ZoneJeu.Content = uc; // associe l'écran au conteneur
             uc.ButJouer.Click += AfficherRegle; // affiche l'écran des règles
@@ -64,24 +66,23 @@ namespace MushroomCatcher
 
         private void AfficheJeu(object sender, RoutedEventArgs e)
         {
-             // crée et charge l'écran de Jeu
-            JEU jeuWindow = new JEU(); // crée et charge l'écran de démarrage
-            jeuWindow.Show(); // associe l'écran au conteneur // associe l'écran au conteneur
-            // uc.ButBoutique.Click += AfficheBoutique; // affiche l'écran de la boutique
+            jeuWindow = new JEU(); // crée et charge l'écran de démarrage
+            jeuWindow.Show(); // associe l'écran au conteneur
+            jeuWindow.ButBoutique.Click += AfficheBoutique; // affiche l'écran de la boutique
+            jeuWindow.ButRetourJeu.Click += AfficheRetour; // affiche l'écran de démmarrage
         }
 
-        private void AfficheRetourJeu(object sender, RoutedEventArgs e)
+        private void AfficheRetourAuJeu(object sender, RoutedEventArgs e)
         {
-            JEU uc = new JEU(); // crée et charge l'écran de Jeu
-            ZoneJeu.Content = uc; // associe l'écran au conteneur
-            // uc.ButBoutique.Click += AfficheBoutique; // affiche l'écran de la boutique
+            jeuWindow.Show(); // associe l'écran au conteneur
         }
 
         private void AfficheBoutique(object sender, RoutedEventArgs e)
         {
+            jeuWindow.Hide();
             EcranBoutique uc = new EcranBoutique(); // crée et charge l'écran de la boutique
             ZoneJeu.Content = uc; // associe l'écran au conteneur
-            uc.ButRetourBoutique.Click += AfficheRetourJeu; // retourne à l'écran de jeu
+            uc.ButRetourBoutique.Click += AfficheRetourAuJeu; // retourne à l'écran de jeu
             uc.ButVendre.Click += AfficheVente; // affiche l'écran de vente
         }
 
@@ -89,15 +90,15 @@ namespace MushroomCatcher
         {
             EcranBoutique uc = new EcranBoutique(); // crée et charge l'écran de la boutique
             ZoneJeu.Content = uc; // associe l'écran au conteneur
-            uc.ButRetourBoutique.Click += AfficheRetourJeu; // retourne à l'écran de jeu
+            uc.ButRetourBoutique.Click += AfficheRetourAuJeu; // retourne à l'écran de jeu
             uc.ButVendre.Click += AfficheVente; // affiche l'écran de vente
         }
 
         private void AfficheVente(object sender, RoutedEventArgs e)
         {
-            EcranBoutique uc = new EcranBoutique(); // crée et charge l'écran de vente
+            EcranVente uc = new EcranVente(); // crée et charge l'écran de vente
             ZoneJeu.Content = uc; // associe l'écran au conteneur
-            uc.ButVendre.Click += AfficheRetourBoutique; // retourne à l'écran de boutique
+            uc.ButRetourVendre.Click += AfficheRetourBoutique; // retourne à l'écran de boutique
         }
         
     }

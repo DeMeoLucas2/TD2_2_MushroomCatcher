@@ -38,6 +38,16 @@ namespace MushroomCatcher
             gameTimer.Start();//a expliquer
         }
 
+        private void ButBoutique_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButRetourJeu_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void GameTimerEvent(object? sender, EventArgs e)
         {
             if (goLeft && Canvas.GetLeft(Player) > 5)

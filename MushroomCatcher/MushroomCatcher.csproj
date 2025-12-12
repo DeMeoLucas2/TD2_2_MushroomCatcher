@@ -10,6 +10,8 @@
 
   <ItemGroup>
     <None Remove="Image\Boutique.png" />
+    <None Remove="Image\BoutiqueP.png" />
+    <None Remove="Image\BoutiquePanneau.png" />
     <None Remove="Image\Credit.png" />
     <None Remove="Image\Fond regle.png" />
     <None Remove="Image\Fondcredit.png" />
@@ -31,6 +33,9 @@
 
   <ItemGroup>
     <Resource Include="Image\Boutique.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\BoutiquePanneau.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\Credit.png">
