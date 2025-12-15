@@ -23,7 +23,7 @@ if (currentX > 0) 					 Gestion des limites. S'assure que la position X actuelle
 
 ------------------------------------------------------
 _____________________Lucas taches_____________________
-
+-gère spawn ennemi
 
 
 -----------------------------------------------------
@@ -31,6 +31,7 @@ ____________________thibault taches__________________
 
 -peut etre animation du perso
 -interface rendre propre
+-gère l'initialisation de la barre de pv
 
 
 ----------------------------------------------------
@@ -39,6 +40,7 @@ ___________________yanis taches_____________________
 -peut etre animation du perso
 -importer une musique de fond
 -bot qui te suit / qui fuit
+-gère attaque/hit box
 
 
 -----------------------------------------------------
