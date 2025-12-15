@@ -24,6 +24,8 @@
     <None Remove="Image\Vendre.png" />
     <None Remove="image_gameplay\main_Hero.png" />
     <None Remove="image_gameplay\map.png" />
+    <None Remove="image_gameplay\mushroom_hungry.png" />
+    <None Remove="image_gameplay\mushroom_sad.png" />
     <None Remove="image_potions\potion_bleu.png" />
     <None Remove="image_potions\potion_jaune.png" />
     <None Remove="image_potions\potion_rouge.png" />
@@ -72,6 +74,12 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image_gameplay\map.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image_gameplay\mushroom_hungry.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image_gameplay\mushroom_sad.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image_potions\potion_bleu.png">

@@ -1,0 +1,44 @@
+------------------------------------------------------
+________________code a connaitre/noter________________
+
+- Application.Current.Shutdown();       fait quitter la page
+
+
+-KeyDown="MainWindow_KeyDown"		se déclenche chaque fois qu'une touche est enfoncée / est le nom de la méthode C# que vous devez définir dans le fichier code-behind
+ Focusable="True"					Cet attribut s'assure que la fenêtre (ou l'élément) peut recevoir le focus clavier  					
+			capturer les entrées clavier pour le contrôle global
+
+
+-<Canvas>							système de coordonnées absolues pour ses enfants.positionner des éléments avec précision en utilisant des coordonnées X, Y (pixels)
+
+-this.Focus();						this fait référence à l'instance actuelle de la classe (JEU)./ Focus() donne le focus clavier à la fenêtre
+
+if (e.Key == Key.Left) 				 Vérifie si la touche Flèche Gauche est pressée.
+
+if (currentX > 0) 					 Gestion des limites. S'assure que la position X actuelle est supérieure à zéro. Cela empêche le joueur de sortir du côté gauche de la zone de jeu (map).
+	
+
+
+
+
+------------------------------------------------------
+_____________________Lucas taches_____________________
+
+
+
+-----------------------------------------------------
+____________________thibault taches__________________
+
+-peut etre animation du perso
+-interface rendre propre
+
+
+----------------------------------------------------
+___________________yanis taches_____________________
+
+-peut etre animation du perso
+-importer une musique de fond
+-bot qui te suit / qui fuit
+
+
+-----------------------------------------------------
