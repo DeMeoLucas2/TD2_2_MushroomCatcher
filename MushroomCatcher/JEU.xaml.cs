@@ -45,6 +45,7 @@ namespace MushroomCatcher
 
             InitializeComponent();
             moove_map.Focus();
+            Ajouter_enemis(moove_map);
 
             gameTimer.Tick += GameTimerEvent;//a expliquer
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);//a expliquer
@@ -72,17 +73,18 @@ namespace MushroomCatcher
                 Canvas.SetLeft(Player, Canvas.GetLeft(Player) + playerSpeed);
             }
 
-            // 3. MOUVEMENT HAUT
+            // MOUVEMENT HAUT
             if (goUp && Canvas.GetTop(Player) > 5)
             {
                 Canvas.SetTop(Player, Canvas.GetTop(Player) - playerSpeed);
             }
 
-            // 4. MOUVEMENT BAS
+            // MOUVEMENT BAS
             if (goDown && Canvas.GetTop(Player) + Player.Height < moove_map.ActualHeight - 5)
             {
                 Canvas.SetTop(Player, Canvas.GetTop(Player) + playerSpeed);
             }
+
             // CIBLE (Coin supérieur gauche du joueur)
             double playerLeft = Canvas.GetLeft(Player);
             double playerTop = Canvas.GetTop(Player);
@@ -208,10 +210,6 @@ namespace MushroomCatcher
                 // On place le bord bas du bot sur le bord bas de la map
                 Canvas.SetTop(mushroomRun, mapHeight - botHeight);
             }
-
-
-
-
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
@@ -253,102 +251,14 @@ namespace MushroomCatcher
             {
                 goDown = false;
             }
-
+        }
+        
+        // appeler les fonction pour la spawn d'ennemi
+        private void Ajouter_enemis(Canvas canva)
+        {
+           SpawnRepeter spawn = new SpawnRepeter();
+           spawn.Update(canva);
 
         }
-
-        /* Essaie spawn ennemi
-        Ps : Cela ne fonctionne pas
-        // Définition de la classe pour un ennemi
-        public class Enemy
-        {
-            public string Name { get; private set; }
-
-            public (int X, int Y) Position { get; set; }
-            
-            public Enemy(int initialX, int initialY)
-            {
-                this.Name = "AngryMush"; // Nom de l'ennemi par défaut
-
-                this.Position = (initialX, initialY);
-                Console.WriteLine($"[ENEMIES] Un {Name} est apparu à ({initialX}, {initialY}) !");
-            }
-            
-            // Méthode de base pour l'ennemi
-            public void Move()
-            {
-                // Logique de mouvement simple (par exemple, se déplace de 1 unité vers le bas)
-                Position = (Position.X, Position.Y + 1);
-            }
-        }
-
-        // Définition de la classe pour un spawner à ennemi
-        public class EnemySpawner
-        {
-            
-            public List<Enemy> ActiveEnemies { get; private set; } // Liste de stokage de tous les ennemis actifs dans le jeu
-                        
-            private (int X, int Y) spawnLocation = (50, 30); // Position de spawn
-
-            // Sert à gérer le délai entre les spawns
-            private float timeSinceLastSpawn = 0f;
-            private const float SpawnInterval = 3.0f; // Apparition toutes les 3 secondes
-    
-            public EnemySpawner()
-            {
-                ActiveEnemies = new List<Enemy>();
-            }
-                
-            public void Update(float deltaTime)
-            {
-                // Mise à jour du temps écoulé
-                timeSinceLastSpawn += deltaTime;
-    
-                // Vérification si l'intervalle est atteint
-                if (timeSinceLastSpawn >= SpawnInterval)
-                {
-                    // Réinitialisation du compteur de temps
-                    timeSinceLastSpawn = 0f;
-    
-                    // Lancement de la fonction de création
-                    SpawnNewEnemy();
-                }
-            }
-    
-            private void SpawnNewEnemy()
-            {
-                // Crée une nouvelle instance de l'ennemi
-                Enemy newEnemy = new Enemy(spawnLocation.X, spawnLocation.Y);
-    
-                // Ajoute l'ennemi à la liste des ennemis actifs
-                ActiveEnemies.Add(newEnemy);
-            }
-        }
-                
-        public class Program
-        {
-            public static void SpawnRepeat(string[] args)
-            {
-                EnemySpawner spawner = new EnemySpawner(); // Crée l'objet Spawner
-
-                // Mesure le temps très précisément 
-                Stopwatch stopwatch = new Stopwatch();
-                stopwatch.Start();
-    
-                // La boucle de jeu principale
-                while (true)
-                {
-                    // Calcul du DeltaTime (temps écoulé depuis dernier "tour")
-                    float deltaTime = (float)stopwatch.Elapsed.TotalSeconds;
-                    stopwatch.Restart(); // Réinitialise timer du prochain tour
-    
-                    // Mise à jour du spawner
-                    spawner.Update(deltaTime);
-
-                    // Limite la vitesse de la boucle (ex: 2000 millisecondes = 1 fois toutes les 2 secondes)
-                    Thread.Sleep(2000);
-                }
-            }
-        }*/
     }
 }

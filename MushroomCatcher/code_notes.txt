@@ -27,7 +27,7 @@ _____________________Lucas taches_____________________
 
 
 -----------------------------------------------------
-____________________thibault taches__________________
+____________________Thibault taches__________________
 
 -peut etre animation du perso
 -interface rendre propre
@@ -35,7 +35,7 @@ ____________________thibault taches__________________
 
 
 ----------------------------------------------------
-___________________yanis taches_____________________
+___________________Yanis taches_____________________
 
 -peut etre animation du perso
 -importer une musique de fond
