@@ -22,9 +22,9 @@
         <Button x:Name="ButRetourJeu" Canvas.Right="0" Canvas.Bottom="0" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Height="51" Click="ButRetourJeu_Click">
             <Image Source="/Image/Retour.png"/>
         </Button>
-        <Image x:Name="mushroomAttack" Height="104" Canvas.Left="558" Source="/image_gameplay/mushroom_hungry.png" Stretch="Fill" Canvas.Top="290" Width="106" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Image x:Name="mushroomRun" Height="104" Canvas.Left="306" Source="/image_gameplay/mushroom_sad.png" Stretch="Fill" Canvas.Top="290" Width="128" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        
+        <Image x:Name="mushroomAttack" Height="88" Canvas.Left="467" Source="/image_gameplay/mushroom_hungry.png" Stretch="Fill" Canvas.Top="298" Width="98" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image x:Name="mushroomRun" Height="68" Canvas.Left="288" Source="/image_gameplay/mushroom_sad.png" Stretch="Fill" Canvas.Top="274" Width="66" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
     </Canvas>
 
 

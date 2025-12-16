@@ -38,10 +38,11 @@ namespace MushroomCatcher
         int fleeRange = 300;  // distance ou il commence a fuire
 
         private int botClickTolerance = 200; //distancxe a laquel le clic est reconnu
+        private int fuyardClickTolerance = 200;
 
-        private int proximityRange = 80; // Zone de tolérance pour le joueur (par exemple, le joueur doit être à moins de 80 pixels du Bot)
+        private int proximityRange = 120; // Zone de tolérance pour le joueur (par exemple, le joueur doit être à moins de 80 pixels du Bot)
         private int botHealth = 2; // Le bot commence avec 2 points de vie
-
+        
         // Propriétés de santé
         private const int SanteMaximale = 3;
         private int santeActuelle = SanteMaximale;
@@ -108,6 +109,10 @@ namespace MushroomCatcher
             double fuyardTop = Canvas.GetTop(mushroomRun);
 
 
+            //---------------------------------------------------------------------------
+            //-------------------------bot fuyard qui fuit-------------------------------
+            //---------------------------------------------------------------------------
+
             // Logique du Bot Poursuiveur (Bot)
             // Calcul des différences (Delta)
             double deltaX_Bot = playerLeft - botLeft;
@@ -146,6 +151,11 @@ namespace MushroomCatcher
                     }
                 }
             }
+
+            //---------------------------------------------------------------------------
+            //-------------------------bot fuyard qui fuit-------------------------------
+            //---------------------------------------------------------------------------
+
             // Logique du Bot Fuyard (mushroomRun)
             // Calcul des différences (Delta)
             double deltaX_Fuyard = playerLeft - fuyardLeft;
@@ -187,7 +197,10 @@ namespace MushroomCatcher
                     }
                 }
             }
+
+            //-----------
             //limitation pour que les bot, ici le fuyard ne sort pas de la map quand il fuit 
+            //-----------
             double currentLeft = Canvas.GetLeft(mushroomRun);
             double currentTop = Canvas.GetTop(mushroomRun);
 
@@ -221,10 +234,12 @@ namespace MushroomCatcher
                 Canvas.SetTop(mushroomRun, mapHeight - botHeight);
             }
 
-
-
-
         }
+
+
+        //---------------------------------------------------------------------------
+        //--------------------------mouvement ZQSD-----------------------------------
+        //---------------------------------------------------------------------------
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
@@ -265,6 +280,7 @@ namespace MushroomCatcher
             {
                 goDown = false;
             }
+
             /* Essaie spawn ennemi
        Ps : Cela ne fonctionne pas
        // Définition de la classe pour un ennemi
@@ -362,6 +378,9 @@ namespace MushroomCatcher
 
         }
 
+        //---------------------------------------------------------------------------
+        //-----------------mechaniqme du click detecter le click---------------------
+        //---------------------------------------------------------------------------
 
         private void MouseClick(object sender, MouseButtonEventArgs e)
         {
@@ -376,7 +395,7 @@ namespace MushroomCatcher
         {
 
             //---------------------------------------------------------------------------
-            //-----------------le dangereux qui se fait attaquer-------------------------
+            //-----------------le dangereux qui se fait cliquer dessus-------------------
             //---------------------------------------------------------------------------
 
             // Récupérer la position du Bot Poursuiveur
@@ -409,7 +428,7 @@ namespace MushroomCatcher
             }
 
             //---------------------------------------------------------------------------
-            //-----------------le fuyard qui se fait attaquer----------------------------
+            //-----------------le fuyard qui se fait cliquer dessus----------------------
             //---------------------------------------------------------------------------
             double fuyardLeft = Canvas.GetLeft(mushroomRun);
             double fuyardTop = Canvas.GetTop(mushroomRun);
@@ -422,7 +441,7 @@ namespace MushroomCatcher
 
             double distanceF = Math.Sqrt((deltaFX * deltaFX) + (deltaFY * deltaFY));
             // Vérifier si la distance est dans la tolérance de clic et si le joueur est proche du Bot
-            if (distance <= botClickTolerance)
+            if (distanceF <= fuyardClickTolerance)
             {
                 // Récupérer la position du joueur
                 double playerLeft = Canvas.GetLeft(Player);
