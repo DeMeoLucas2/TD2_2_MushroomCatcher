@@ -30,15 +30,24 @@ namespace MushroomCatcher
 
         bool goLeft, goRight, goUp, goDown;
         int playerSpeed = 8;
-        int speed = 12;
 
-        int botSpeed = 6; //vitesse du bot
-        int stopRange = 15; //tolerennce en pixel pour s'arreter
+        int botSpeed =4; //vitesse du bot
+        int stopRange = 50; //tolerennce en pixel pour s'arreter
 
-        int fuyardSpeed = 4;  // vitese du fuyard
-        int fleeRange = 500;  // distance ou il commence a fuire
+        int fuyardSpeed = 5;  // vitese du fuyard
+        int fleeRange = 300;  // distance ou il commence a fuire
 
+        private int botClickTolerance = 200; //distancxe a laquel le clic est reconnu
 
+        private int proximityRange = 80; // Zone de tolérance pour le joueur (par exemple, le joueur doit être à moins de 80 pixels du Bot)
+        private int botHealth = 2; // Le bot commence avec 2 points de vie
+
+        // Propriétés de santé
+        private const int SanteMaximale = 3;
+        private int santeActuelle = SanteMaximale;
+
+        private bool estInvincible = false;
+        private DispatcherTimer timerInvulnerabilite = new DispatcherTimer();
         DispatcherTimer gameTimer = new DispatcherTimer();//a expliquer
         public JEU()
         {
@@ -50,6 +59,9 @@ namespace MushroomCatcher
             gameTimer.Tick += GameTimerEvent;//a expliquer
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);//a expliquer
             gameTimer.Start();//a expliquer
+
+
+
         }
 
         private void ButBoutique_Click(object sender, RoutedEventArgs e)
@@ -251,14 +263,179 @@ namespace MushroomCatcher
             {
                 goDown = false;
             }
-        }
-        
-        // appeler les fonction pour la spawn d'ennemi
-        private void Ajouter_enemis(Canvas canva)
-        {
-           SpawnRepeter spawn = new SpawnRepeter();
-           spawn.Update(canva);
+            /* Essaie spawn ennemi
+       Ps : Cela ne fonctionne pas
+       // Définition de la classe pour un ennemi
+       public class Enemy
+       {
+           public string Name { get; private set; }
 
+           public (int X, int Y) Position { get; set; }
+
+           public Enemy(int initialX, int initialY)
+           {
+               this.Name = "AngryMush"; // Nom de l'ennemi par défaut
+
+               this.Position = (initialX, initialY);
+               Console.WriteLine($"[ENEMIES] Un {Name} est apparu à ({initialX}, {initialY}) !");
+           }
+
+           // Méthode de base pour l'ennemi
+           public void Move()
+           {
+               // Logique de mouvement simple (par exemple, se déplace de 1 unité vers le bas)
+               Position = (Position.X, Position.Y + 1);
+           }
+       }
+
+       // Définition de la classe pour un spawner à ennemi
+       public class EnemySpawner
+       {
+
+           public List<Enemy> ActiveEnemies { get; private set; } // Liste de stokage de tous les ennemis actifs dans le jeu
+
+           private (int X, int Y) spawnLocation = (50, 30); // Position de spawn
+
+           // Sert à gérer le délai entre les spawns
+           private float timeSinceLastSpawn = 0f;
+           private const float SpawnInterval = 3.0f; // Apparition toutes les 3 secondes
+
+           public EnemySpawner()
+           {
+               ActiveEnemies = new List<Enemy>();
+           }
+
+           public void Update(float deltaTime)
+           {
+               // Mise à jour du temps écoulé
+               timeSinceLastSpawn += deltaTime;
+
+               // Vérification si l'intervalle est atteint
+               if (timeSinceLastSpawn >= SpawnInterval)
+               {
+                   // Réinitialisation du compteur de temps
+                   timeSinceLastSpawn = 0f;
+
+                   // Lancement de la fonction de création
+                   SpawnNewEnemy();
+               }
+           }
+
+           private void SpawnNewEnemy()
+           {
+               // Crée une nouvelle instance de l'ennemi
+               Enemy newEnemy = new Enemy(spawnLocation.X, spawnLocation.Y);
+
+               // Ajoute l'ennemi à la liste des ennemis actifs
+               ActiveEnemies.Add(newEnemy);
+           }
+       }
+
+       public class Program
+       {
+           public static void SpawnRepeat(string[] args)
+           {
+               EnemySpawner spawner = new EnemySpawner(); // Crée l'objet Spawner
+
+               // Mesure le temps très précisément 
+               Stopwatch stopwatch = new Stopwatch();
+               stopwatch.Start();
+
+               // La boucle de jeu principale
+               while (true)
+               {
+                   // Calcul du DeltaTime (temps écoulé depuis dernier "tour")
+                   float deltaTime = (float)stopwatch.Elapsed.TotalSeconds;
+                   stopwatch.Restart(); // Réinitialise timer du prochain tour
+
+                   // Mise à jour du spawner
+                   spawner.Update(deltaTime);
+
+                   // Limite la vitesse de la boucle (ex: 2000 millisecondes = 1 fois toutes les 2 secondes)
+                   Thread.Sleep(2000);
+               }
+           }
+       }*/
+
+
+        }
+
+
+        private void MouseClick(object sender, MouseButtonEventArgs e)
+        {
+            // Récupère la position du clic et la stocke
+            Point clickPosition = e.GetPosition(moove_map);
+
+            // Passe la position du clic à la méthode de vérification
+            CheckForAttack(clickPosition);
+        }
+
+        private void CheckForAttack(Point clickPosition)   //GENERER AVEC VS SEUL
+        {
+
+            //---------------------------------------------------------------------------
+            //-----------------le dangereux qui se fait attaquer-------------------------
+            //---------------------------------------------------------------------------
+
+            // Récupérer la position du Bot Poursuiveur
+            double botLeft = Canvas.GetLeft(mushroomAttack);
+            double botTop = Canvas.GetTop(mushroomAttack);
+            // Calculer le centre du Bot
+            double botCenterX = botLeft + (mushroomAttack.Width / 2);
+            double botCenterY = botTop + (mushroomAttack.Height / 2);
+            // Calculer la distance entre le clic et le centre du Bot
+            double deltaX = clickPosition.X - botCenterX;
+            double deltaY = clickPosition.Y - botCenterY;
+
+            double distance = Math.Sqrt((deltaX * deltaX) + (deltaY * deltaY));
+            // Vérifier si la distance est dans la tolérance de clic et si le joueur est proche du Bot
+            if (distance <= botClickTolerance)
+            {
+                // Récupérer la position du joueur
+                double playerLeft = Canvas.GetLeft(Player);
+                double playerTop = Canvas.GetTop(Player);
+                // Calculer la distance entre le joueur et le Bot
+                double deltaX_Player = playerLeft - botLeft;
+                double deltaY_Player = playerTop - botTop;
+                double distanceToPlayer = Math.Sqrt((deltaX_Player * deltaX_Player) + (deltaY_Player * deltaY_Player));
+                // Vérifier si le joueur est proche du Bot
+                if (distanceToPlayer <= proximityRange)
+                {
+                    // Le Bot est attaqué
+                    moove_map.Children.Remove(mushroomAttack);
+                }
+            }
+
+            //---------------------------------------------------------------------------
+            //-----------------le fuyard qui se fait attaquer----------------------------
+            //---------------------------------------------------------------------------
+            double fuyardLeft = Canvas.GetLeft(mushroomRun);
+            double fuyardTop = Canvas.GetTop(mushroomRun);
+            // Calculer le centre du Bot
+            double fuyardCenterX = fuyardLeft + (mushroomRun.Width / 2);
+            double fuyardCenterY = fuyardTop + (mushroomRun.Height / 2);
+            // Calculer la distance entre le clic et le centre du Bot
+            double deltaFX = clickPosition.X - fuyardCenterX;
+            double deltaFY = clickPosition.Y - fuyardCenterY;
+
+            double distanceF = Math.Sqrt((deltaFX * deltaFX) + (deltaFY * deltaFY));
+            // Vérifier si la distance est dans la tolérance de clic et si le joueur est proche du Bot
+            if (distance <= botClickTolerance)
+            {
+                // Récupérer la position du joueur
+                double playerLeft = Canvas.GetLeft(Player);
+                double playerTop = Canvas.GetTop(Player);
+                // Calculer la distance entre le joueur et le Bot
+                double deltaX_Player = playerLeft - fuyardLeft;
+                double deltaY_Player = playerTop - fuyardTop;
+                double distanceToPlayer = Math.Sqrt((deltaX_Player * deltaX_Player) + (deltaY_Player * deltaY_Player));
+                // Vérifier si le joueur est proche du Bot
+                if (distanceToPlayer <= proximityRange)
+                {
+                    // Le Bot est attaqué
+                    moove_map.Children.Remove(mushroomRun);
+                }
+            }
         }
     }
 }

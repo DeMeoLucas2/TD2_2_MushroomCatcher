@@ -31,16 +31,17 @@ ____________________Thibault taches__________________
 
 -peut etre animation du perso
 -interface rendre propre
--gère l'initialisation de la barre de pv
-
+-systeme de pv
 
 ----------------------------------------------------
 ___________________Yanis taches_____________________
 
--peut etre animation du perso
--importer une musique de fond
--bot qui te suit / qui fuit
--gère attaque/hit box
 
+
+-tout bien renomer pour etre clair X
+-peut etre animation du perso X
+-importer une musique de fond X
+-bot qui te suit / qui fuit V
+-bot que se fait attaquer V
 
 -----------------------------------------------------

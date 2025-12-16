@@ -8,12 +8,12 @@
         Height="700" Width="1000">
 
 
-    <Canvas Name="moove_map" Focusable="True" KeyDown="KeyIsDown" KeyUp="KeyIsUp" >
+    <Canvas Name="moove_map" Focusable="True" KeyDown="KeyIsDown" KeyUp="KeyIsUp" MouseLeftButtonDown="MouseClick" >
         <Canvas.Background>
             <ImageBrush ImageSource="/image_gameplay/map.png"/>
         </Canvas.Background>
 
-        <Image x:Name="Player" Source="/image_gameplay/main_Hero.png" Width="99" Height="120" Canvas.Left="24" Canvas.Top="102" />
+        <Image x:Name="Player" Source="/image_gameplay/main_Hero.png" Width="84" Height="106" Canvas.Left="75" Canvas.Top="90" />
 
         <Button x:Name="ButBoutique" Canvas.Right="0" Canvas.Bottom="50" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Height="51" Click="ButBoutique_Click">
             <Image Source="/Image/BoutiquePanneau.png"/>
@@ -22,9 +22,9 @@
         <Button x:Name="ButRetourJeu" Canvas.Right="0" Canvas.Bottom="0" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Height="51" Click="ButRetourJeu_Click">
             <Image Source="/Image/Retour.png"/>
         </Button>
-        <Image x:Name="mushroomAttack" Height="104" Canvas.Left="500" Source="/image_gameplay/mushroom_angry.png" Stretch="Fill" Canvas.Top="238" Width="126"/>
-        <Image x:Name="mushroomRun" Height="104" Canvas.Left="298" Source="/image_gameplay/mushroom_sad.png" Stretch="Fill" Canvas.Top="380" Width="127" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-
+        <Image x:Name="mushroomAttack" Height="104" Canvas.Left="558" Source="/image_gameplay/mushroom_hungry.png" Stretch="Fill" Canvas.Top="290" Width="106" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image x:Name="mushroomRun" Height="104" Canvas.Left="306" Source="/image_gameplay/mushroom_sad.png" Stretch="Fill" Canvas.Top="290" Width="128" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        
     </Canvas>
 
 
