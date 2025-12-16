@@ -7,9 +7,42 @@
         mc:Ignorable="d"
         Height="600" Width="800">
     <Grid>
-        
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/Image/VentePotion.png"/>
+        </Grid.Background>
+
         <Button x:Name="ButRetourVendre" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Height="51" Click="ButRetourVendre_Click">
             <Image Source="/Image/Retour.png"/>
+        </Button>
+        
+        <Image Margin="325,10,320,470" Source="/image_potions/potion_bleu.png" Stretch="Fill"/>
+        <Image Margin="335,130,330,360" Source="/image_potions/potion_jaune.png" Stretch="Fill"/>
+        <Image Margin="340,250,330,245" Source="/image_potions/potion_rouge.png" Stretch="Fill"/>
+        <Image Margin="330,360,330,120" Source="/image_potions/potion_vert.png" Stretch="Fill"/>
+        <Image Margin="335,480,335,10" Source="/image_potions/potion_violet.png" Stretch="Fill"/>
+        
+        <Button x:Name="ButPotBleuG" Content="←" HorizontalAlignment="Left" Margin="330,50,0,0" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" Click="ButPotBleuG_Click"/>
+        <Button x:Name="ButPotJauneG" Content="←" HorizontalAlignment="Left" Margin="330,185,0,0" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" Click="ButPotJauneG_Click"/>
+        <Button x:Name="ButPotRougeG" Content="←" HorizontalAlignment="Left" Margin="330,288,0,0" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" Click="ButPotRougeG_Click"/>
+        <Button x:Name="ButPotVertG" Content="←" HorizontalAlignment="Left" Margin="330,405,0,0" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" Click="ButPotVertG_Click"/>
+        <Button x:Name="ButPotVioletG" Content="←" HorizontalAlignment="Left" Margin="330,505,0,0" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" Click="ButPotVioletG_Click"/>
+        <Button x:Name="ButPotVioletD" Content="→" HorizontalAlignment="Left" Margin="450,505,0,0" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" Click="ButPotVioletD_Click"/>
+        <Button x:Name="ButPotVertD" Content="→" HorizontalAlignment="Left" Margin="450,405,0,0" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" Click="ButPotVertD_Click"/>
+        <Button x:Name="ButPotRougeG1" Content="→" HorizontalAlignment="Left" Margin="450,288,0,0" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" Click="ButPotRougeG1_Click"/>
+        <Button x:Name="ButPotJauneD" Content="→" HorizontalAlignment="Left" Margin="450,185,0,0" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" Click="ButPotJauneD_Click"/>
+        <Button x:Name="ButPotBleuD" Content="→" HorizontalAlignment="Left" Margin="450,50,0,0" VerticalAlignment="Top" Height="30" Width="30" FontSize="20" Click="ButPotBleuD_Click"/>
+        
+        <TextBox x:Name="TxtPotBleuCmp" HorizontalAlignment="Left" Height="20" Margin="388,5,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="30" Background="#FF989898" BorderBrush="{x:Null}" Foreground="#FFBB0000"/>
+        <TextBox x:Name="TxtPotJauneCmp" HorizontalAlignment="Left" Height="20" Margin="388,140,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="30" Background="#FF989898" BorderBrush="{x:Null}" Foreground="#FFBB0000"/>
+        <TextBox x:Name="TxtPotRougeCmp" HorizontalAlignment="Left" Height="20" Margin="388,240,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="30" Background="#FF989898" BorderBrush="{x:Null}" Foreground="#FFBB0000"/>
+        <TextBox x:Name="TxtPotVertCmp1" HorizontalAlignment="Left" Height="20" Margin="388,380,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="30" Background="#FF989898" BorderBrush="{x:Null}" Foreground="#FFBB0000"/>
+        <TextBox x:Name="TxtPotVioletCmp" HorizontalAlignment="Left" Height="20" Margin="388,490,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="30" Background="#FF989898" BorderBrush="{x:Null}" Foreground="#FFBB0000"/>
+
+        <Image Margin="0,480,30,0" Source="/Image/RRRR.png" Stretch="Fill" Width="160" Height="70" HorizontalAlignment="Right" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.25"/>
+
+        <Button x:Name="ButVente" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Right"  Margin="0,490,35,0" VerticalAlignment="Top" Width="150" Height="50" Click="ButVente_Click">
+            <Image Source="/Image/Vendre.png"/>
         </Button>
 
     </Grid>

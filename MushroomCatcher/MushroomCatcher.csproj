@@ -9,12 +9,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Image\Barre0V.png" />
+    <None Remove="Image\Barre1V.png" />
+    <None Remove="Image\Barre2V.png" />
+    <None Remove="Image\Barre3V.png" />
+    <None Remove="Image\Barre4V.png" />
+    <None Remove="Image\Barre5V.png" />
     <None Remove="Image\Boutique.png" />
     <None Remove="Image\BoutiqueP.png" />
     <None Remove="Image\BoutiquePanneau.png" />
     <None Remove="Image\Credit.png" />
     <None Remove="Image\Fond regle.png" />
     <None Remove="Image\Fondcredit.png" />
+    <None Remove="Image\GigaBoss.png" />
     <None Remove="Image\Jouer.png" />
     <None Remove="Image\Menu.png" />
     <None Remove="Image\Oui.png" />
@@ -22,12 +29,14 @@
     <None Remove="Image\Retour.png" />
     <None Remove="Image\RRRR.png" />
     <None Remove="Image\Vendre.png" />
+    <None Remove="Image\VentePotion.png" />
     <None Remove="image_gameplay\Barre 13.png" />
     <None Remove="image_gameplay\Barre 23.png" />
     <None Remove="image_gameplay\Barre 33.png" />
     <None Remove="image_gameplay\Barre mort.png" />
     <None Remove="image_gameplay\main_Hero.png" />
     <None Remove="image_gameplay\map.png" />
+    <None Remove="image_gameplay\MushroomToutcontent.png" />
     <None Remove="image_gameplay\mushroom_sad.png" />
     <None Remove="image_potions\potion_bleu.png" />
     <None Remove="image_potions\potion_jaune.png" />
@@ -37,6 +46,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Image\Barre0V.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Barre1V.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Barre2V.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Barre3V.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Barre4V.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\Barre5V.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Image\Boutique.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -50,6 +77,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\Fondcredit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Image\GigaBoss.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Image\Jouer.png">
@@ -73,6 +103,9 @@
     <Resource Include="Image\Vendre.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Image\VentePotion.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="image_gameplay\Barre 13.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
@@ -89,6 +122,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image_gameplay\map.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="image_gameplay\MushroomToutcontent.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="image_gameplay\mushroom_angry.png">

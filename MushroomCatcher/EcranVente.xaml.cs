@@ -28,5 +28,60 @@ namespace MushroomCatcher
         {
 
         }
+
+        private void ButPotBleuG_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButPotJauneG_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButPotRougeG_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButPotVertG_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButPotVioletG_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButPotVioletD_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButPotVertD_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButPotRougeG1_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButPotJauneD_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButPotBleuD_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ButVente_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -5,29 +5,84 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MushroomCatcher"
         mc:Ignorable="d"
-        Height="700" Width="1000">
+        Height="700" Width="1000"
+        WindowStartupLocation="CenterScreen">
 
-
-    <Canvas Name="moove_map" Focusable="True" KeyDown="KeyIsDown" KeyUp="KeyIsUp" MouseLeftButtonDown="MouseClick" >
+    <Canvas Name="moove_map" Focusable="True" KeyDown="KeyIsDown" KeyUp="KeyIsUp" MouseDown="MouseClick">
         <Canvas.Background>
             <ImageBrush ImageSource="/image_gameplay/map.png"/>
         </Canvas.Background>
 
-        <Image x:Name="Player" Source="/image_gameplay/main_Hero.png" Width="84" Height="106" Canvas.Left="75" Canvas.Top="90" />
+        <Image x:Name="ImageBarreSante" 
+               Height="17" 
+               Canvas.Left="10" 
+               Stretch="Fill" 
+               Canvas.Top="10" 
+               Width="110"/>
 
-        <Button x:Name="ButBoutique" Canvas.Right="0" Canvas.Bottom="50" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Height="51" Click="ButBoutique_Click">
+        <StackPanel Orientation="Horizontal" Canvas.Left="10" Canvas.Top="35">
+            <TextBlock x:Name="TxtPotions" 
+                       Text="Potions: 0" 
+                       FontSize="20" 
+                       Foreground="White" 
+                       FontWeight="Bold" 
+                       Margin="0,0,20,0">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="2"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <TextBlock x:Name="TxtScore" 
+                       Text="Score: 0" 
+                       FontSize="20" 
+                       Foreground="Gold" 
+                       FontWeight="Bold">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="5" ShadowDepth="2"/>
+                </TextBlock.Effect>
+            </TextBlock>
+        </StackPanel>
+
+        <Image x:Name="Player" 
+               Source="/image_gameplay/main_Hero.png" 
+               Width="99" Height="120" 
+               Canvas.Left="24" Canvas.Top="102" />
+
+        <Button x:Name="ButBoutique" 
+                Canvas.Right="10" Canvas.Bottom="60" 
+                Background="Transparent" 
+                BorderBrush="{x:Null}" 
+                Width="120" Height="51" 
+                Click="ButBoutique_Click">
             <Image Source="/Image/BoutiquePanneau.png"/>
         </Button>
 
-        <Button x:Name="ButRetourJeu" Canvas.Right="0" Canvas.Bottom="0" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="120" Height="51" Click="ButRetourJeu_Click">
+        <Button x:Name="ButRetourJeu" 
+                Canvas.Right="10" Canvas.Bottom="10" 
+                Background="Transparent" 
+                BorderBrush="{x:Null}" 
+                Width="120" Height="51" 
+                Click="ButRetourJeu_Click">
             <Image Source="/Image/Retour.png"/>
         </Button>
-        <Image x:Name="mushroomAttack" Height="104" Canvas.Left="558" Source="/image_gameplay/mushroom_hungry.png" Stretch="Fill" Canvas.Top="290" Width="106" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Image x:Name="mushroomRun" Height="104" Canvas.Left="306" Source="/image_gameplay/mushroom_sad.png" Stretch="Fill" Canvas.Top="290" Width="128" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        
+
+        <Image x:Name="mushroomAttack" 
+               Tag="ennemi"
+               Height="104" Canvas.Left="500" 
+               Source="/image_gameplay/mushroom_angry.png" 
+               Stretch="Fill" Canvas.Top="238" Width="126"/>
+
+        <Image x:Name="mushroomRun" 
+               Tag="ennemi"
+               Height="104" Canvas.Left="110" 
+               Source="/image_gameplay/mushroom_sad.png" 
+               Stretch="Fill" Canvas.Top="238" Width="127"/>
+
+        <Image x:Name="mushroomBoss" 
+               Tag="ennemi"
+               Height="327" Canvas.Left="1298" 
+               Source="/Image/GigaBoss.png" 
+               Stretch="Fill" Canvas.Top="40" Width="354"/>
+
     </Canvas>
-
-
-
 </Window>
-
