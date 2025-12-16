@@ -4,7 +4,6 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 
@@ -14,7 +13,7 @@ namespace MushroomCatcher
     {
         // --- PROPRIÉTÉS JOUEUR ---
         private bool goLeft, goRight, goUp, goDown;
-        private const int PlayerSpeed = 32;
+        private const int PlayerSpeed = 12;
         private const int SanteMaximale = 5;
         private int santeActuelle = SanteMaximale;
         private bool estInvincible = false;
@@ -23,17 +22,18 @@ namespace MushroomCatcher
         private int argent = 0;
         private int score = 0;
         private int compteurPotions = 0;
-        private int tauxDrop = 50;
+        private int tauxDrop = 80;
 
         // --- PROPRIÉTÉS ENNEMIS ---
         private const int BotSpeed = 4;
         private const int StopRange = 25;
-        private const int FuyardSpeed = 5;
+        private const int FuyardSpeed = 11;
         private const int FleeRange = 300;
 
         // --- COMBAT ---
         private int proximityRange = 120;
-        private int botClickTolerance = 60;
+        private int botClickTolerance = 200;
+        private int fuyardClickTolerance = 200;
 
         // --- TIMERS ---
         private DispatcherTimer gameTimer = new DispatcherTimer();
@@ -44,6 +44,11 @@ namespace MushroomCatcher
         {
             InitializeComponent();
             moove_map.Focus();
+
+            // --- MODE PLEIN ÉCRAN ---
+            this.WindowStyle = WindowStyle.None; // Supprime les bordures et la barre de titre
+            this.WindowState = WindowState.Maximized; // Agrandi la fenêtre au maximum
+            this.Topmost = true; // Garde le jeu au-dessus des autres fenêtres
 
             gameTimer.Tick += GameTimerEvent;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
@@ -64,7 +69,7 @@ namespace MushroomCatcher
             MettreAJourAffichageUI();
         }
 
-        // --- LOGIQUE BOUTIQUE ---        
+        // --- LOGIQUE BOUTIQUE ---
         public void Vendre(object sender, RoutedEventArgs e)
         {
             if (compteurPotions > 0)
@@ -85,6 +90,12 @@ namespace MushroomCatcher
                 MessageBox.Show("Pas de potions en stock !");
             }
         }
+
+        private void ButBoutique_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
 
         private void MettreAJourAffichageUI()
         {
@@ -140,8 +151,22 @@ namespace MushroomCatcher
 
                     if (dist < FleeRange)
                     {
-                        Canvas.SetLeft(x, fLeft + (pLeft > fLeft ? -FuyardSpeed : FuyardSpeed));
-                        Canvas.SetTop(x, fTop + (pTop > fTop ? -FuyardSpeed : FuyardSpeed));
+                        // Calcul de la direction de fuite
+                        double nextLeft = fLeft + (pLeft > fLeft ? -FuyardSpeed : FuyardSpeed);
+                        double nextTop = fTop + (pTop > fTop ? -FuyardSpeed : FuyardSpeed);
+
+                        // --- EMPÊCHER DE SORTIR ---
+                        // Vérification horizontale (entre 0 et la largeur de la map)
+                        if (nextLeft > 0 && nextLeft + x.Width < moove_map.ActualWidth)
+                        {
+                            Canvas.SetLeft(x, nextLeft);
+                        }
+
+                        // Vérification verticale (entre 0 et la hauteur de la map)
+                        if (nextTop > 0 && nextTop + x.Height < moove_map.ActualHeight)
+                        {
+                            Canvas.SetTop(x, nextTop);
+                        }
                     }
                 }
             }
@@ -171,7 +196,6 @@ namespace MushroomCatcher
                     {
                         moove_map.Children.Remove(x);
                         compteurPotions++;
-                        score += 10;
                         MettreAJourAffichageUI();
 
                         if (santeActuelle < SanteMaximale)
@@ -191,13 +215,16 @@ namespace MushroomCatcher
             double pTop = Canvas.GetTop(Player);
 
             var cibles = moove_map.Children.OfType<Image>()
-                .Where(x => (x.Tag as string) == "ennemi" || x.Name == "mushroomRun" || x.Name == "mushroomBoss")
+                .Where(x => (x.Tag as string) == "ennemi" || x.Name == "mushroomRun" || x.Name == "mushroomBoss" || x.Name == "mushroomAttack")
                 .ToList();
 
             Random rnd = new Random();
 
             foreach (var target in cibles)
             {
+                // --- IMMORTALITÉ DU MUSHROOM ATTACK ---
+                if (target.Name == "mushroomAttack") continue;
+
                 double tLeft = Canvas.GetLeft(target);
                 double tTop = Canvas.GetTop(target);
                 double distClick = Math.Sqrt(Math.Pow(clickPos.X - (tLeft + target.Width / 2), 2) + Math.Pow(clickPos.Y - (tTop + target.Height / 2), 2));
@@ -205,26 +232,49 @@ namespace MushroomCatcher
 
                 if (distClick < botClickTolerance && distJoueur < proximityRange)
                 {
-                    if (rnd.Next(1, 101) <= tauxDrop) CreerObjetAuSol(tLeft, tTop);
+                    // --- RÉCOMPENSE SPÉCIALE FUYARD ---
+                    if (target.Name == "mushroomRun")
+                    {
+                        score += 300; // Le fuyard donne 300 points d'un coup !
+                    }
+
+
+                    if (rnd.Next(1, 101) <= tauxDrop)
+                        CreerObjetAuSol(tLeft, tTop);
 
                     moove_map.Children.Remove(target);
-                    score += 20;
                     MettreAJourAffichageUI();
                 }
             }
         }
 
+        // Déclare le Random ici, en dehors de la méthode
+        private static readonly Random rnd = new Random();
+
         private void CreerObjetAuSol(double x, double y)
         {
-            Image loot = new Image
+            try
             {
-                Width = 50,
-                Height = 50,
-                Tag = "loot",
-                Source = new BitmapImage(new Uri("pack://application:,,,/MushroomCatcher;component/image_potions/potion_bleu.png"))
-            };
-            Canvas.SetLeft(loot, x); Canvas.SetTop(loot, y);
-            moove_map.Children.Add(loot);
+                string[] potions = { "potion_bleu.png", "potion_rouge.png", "potion_verte.png", "potion_jaune.png", "potion_violette.png" };
+                                
+                string potionChoisie = potions[rnd.Next(0, potions.Length)];
+
+                Image loot = new Image
+                {
+                    Width = 50,
+                    Height = 50,
+                    Tag = "loot",
+                    Source = new BitmapImage(new Uri($"pack://application:,,,/MushroomCatcher;component/image_potions/{potionChoisie}", UriKind.Absolute))
+                };
+                                
+                Canvas.SetLeft(loot, x);
+                Canvas.SetTop(loot, y);
+                moove_map.Children.Add(loot);
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("Erreur création potion : " + ex.Message);
+            }
         }
 
         public void SubirAttaque(int degats)
@@ -281,4 +331,3 @@ namespace MushroomCatcher
         }
     }
 }
-
