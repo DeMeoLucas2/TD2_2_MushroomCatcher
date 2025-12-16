@@ -22,7 +22,7 @@ namespace MushroomCatcher
         private int argent = 0;
         private int score = 0;
         private int compteurPotions = 0;
-        private int tauxDrop = 80;
+        private int tauxDrop = 100;
 
         // --- PROPRIÉTÉS ENNEMIS ---
         private const int BotSpeed = 4;
@@ -40,15 +40,18 @@ namespace MushroomCatcher
         private DispatcherTimer spawnTimer = new DispatcherTimer();
         private DispatcherTimer timerInvulnerabilite = new DispatcherTimer();
 
+        // Déclaration du Random statique et unique (Utilisation cohérente)
+        private static readonly Random rnd = new Random();
+
         public JEU()
         {
             InitializeComponent();
             moove_map.Focus();
 
             // --- MODE PLEIN ÉCRAN ---
-            this.WindowStyle = WindowStyle.None; // Supprime les bordures et la barre de titre
-            this.WindowState = WindowState.Maximized; // Agrandi la fenêtre au maximum
-            this.Topmost = true; // Garde le jeu au-dessus des autres fenêtres
+            this.WindowStyle = WindowStyle.None;
+            this.WindowState = WindowState.Maximized;
+            this.Topmost = true;
 
             gameTimer.Tick += GameTimerEvent;
             gameTimer.Interval = TimeSpan.FromMilliseconds(20);
@@ -69,7 +72,7 @@ namespace MushroomCatcher
             MettreAJourAffichageUI();
         }
 
-        // --- LOGIQUE BOUTIQUE ---
+        // Renommée ou utilisée comme handler
         public void Vendre(object sender, RoutedEventArgs e)
         {
             if (compteurPotions > 0)
@@ -91,11 +94,8 @@ namespace MushroomCatcher
             }
         }
 
-        private void ButBoutique_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        // *** SUPPRIMÉ : Laissez le handler XAML pointer vers Vendre ***
+        // private void ButBoutique_Click(object sender, RoutedEventArgs e) { } 
 
         private void MettreAJourAffichageUI()
         {
@@ -156,13 +156,11 @@ namespace MushroomCatcher
                         double nextTop = fTop + (pTop > fTop ? -FuyardSpeed : FuyardSpeed);
 
                         // --- EMPÊCHER DE SORTIR ---
-                        // Vérification horizontale (entre 0 et la largeur de la map)
                         if (nextLeft > 0 && nextLeft + x.Width < moove_map.ActualWidth)
                         {
                             Canvas.SetLeft(x, nextLeft);
                         }
 
-                        // Vérification verticale (entre 0 et la hauteur de la map)
                         if (nextTop > 0 && nextTop + x.Height < moove_map.ActualHeight)
                         {
                             Canvas.SetTop(x, nextTop);
@@ -218,7 +216,8 @@ namespace MushroomCatcher
                 .Where(x => (x.Tag as string) == "ennemi" || x.Name == "mushroomRun" || x.Name == "mushroomBoss" || x.Name == "mushroomAttack")
                 .ToList();
 
-            Random rnd = new Random();
+            // Le Random unique et statique est utilisé
+            // Random rnd = new Random(); // LIGNE SUPPRIMÉE
 
             foreach (var target in cibles)
             {
@@ -248,25 +247,24 @@ namespace MushroomCatcher
             }
         }
 
-        // Déclare le Random ici, en dehors de la méthode
-        private static readonly Random rnd = new Random();
-
         private void CreerObjetAuSol(double x, double y)
         {
             try
             {
                 string[] potions = { "potion_bleu.png", "potion_rouge.png", "potion_verte.png", "potion_jaune.png", "potion_violette.png" };
-                                
-                string potionChoisie = potions[rnd.Next(0, potions.Length)];
+
+                // Utilisation de rnd.Next(potions.Length)
+                string potionChoisie = potions[rnd.Next(potions.Length)];
 
                 Image loot = new Image
                 {
                     Width = 50,
                     Height = 50,
                     Tag = "loot",
-                    Source = new BitmapImage(new Uri($"pack://application:,,,/MushroomCatcher;component/image_potions/{potionChoisie}", UriKind.Absolute))
+                    // *** CORRECTION DE L'URI ICI ***
+                    Source = new BitmapImage(new Uri($"pack://application:,,,/MushroomCatcher;component/image_potions/{potionChoisie}", UriKind.RelativeOrAbsolute))
                 };
-                                
+
                 Canvas.SetLeft(loot, x);
                 Canvas.SetTop(loot, y);
                 moove_map.Children.Add(loot);
@@ -308,9 +306,10 @@ namespace MushroomCatcher
         {
             Image nEnnemi = new Image { Width = 100, Height = 100, Tag = "ennemi" };
             nEnnemi.Source = new BitmapImage(new Uri("pack://application:,,,/MushroomCatcher;component/image_gameplay/MushroomToutcontent.png"));
-            Random r = new Random();
-            Canvas.SetLeft(nEnnemi, r.Next(0, (int)Math.Max(50, moove_map.ActualWidth - 100)));
-            Canvas.SetTop(nEnnemi, r.Next(0, (int)Math.Max(50, moove_map.ActualHeight - 100)));
+
+            // Utilisation du Random statique et unique (rnd)
+            Canvas.SetLeft(nEnnemi, rnd.Next(0, (int)Math.Max(50, moove_map.ActualWidth - 100)));
+            Canvas.SetTop(nEnnemi, rnd.Next(0, (int)Math.Max(50, moove_map.ActualHeight - 100)));
             moove_map.Children.Add(nEnnemi);
         }
 
