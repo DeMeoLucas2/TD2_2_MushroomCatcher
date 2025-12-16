@@ -316,17 +316,17 @@ namespace MushroomCatcher
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Q || e.Key == Key.A) goLeft = true;
+            if (e.Key == Key.Q) goLeft = true;
             if (e.Key == Key.D) goRight = true;
-            if (e.Key == Key.Z || e.Key == Key.W) goUp = true;
+            if (e.Key == Key.Z) goUp = true;
             if (e.Key == Key.S) goDown = true;
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
-            if (e.Key == Key.Q || e.Key == Key.A) goLeft = false;
+            if (e.Key == Key.Q) goLeft = false;
             if (e.Key == Key.D) goRight = false;
-            if (e.Key == Key.Z || e.Key == Key.W) goUp = false;
+            if (e.Key == Key.Z) goUp = false;
             if (e.Key == Key.S) goDown = false;
         }
     }
