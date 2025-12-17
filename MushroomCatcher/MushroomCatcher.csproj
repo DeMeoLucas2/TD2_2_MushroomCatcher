@@ -9,6 +9,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="animationFinal\animation nouveau final\animation champignon mechant\champiAW1.png" />
+    <None Remove="animationFinal\animation nouveau final\animation champignon mechant\champiAW2.png" />
+    <None Remove="animationFinal\animation nouveau final\animation champignon mechant\champiAW3.png" />
+    <None Remove="animationFinal\animation nouveau final\animtion champu. fuit\champiFW1.png" />
+    <None Remove="animationFinal\animation nouveau final\animtion champu. fuit\champiFW2.png" />
+    <None Remove="animationFinal\animation nouveau final\hero_animation\main_hero1.png" />
+    <None Remove="animationFinal\animation nouveau final\hero_animation\main_hero2.png" />
+    <None Remove="animationFinal\animation nouveau final\hero_animation\main_hero3.png" />
+    <None Remove="animationFinal\animation nouveau final\hero_animation\main_hero4.png" />
     <None Remove="Image\Barre0V.png" />
     <None Remove="Image\Barre1V.png" />
     <None Remove="Image\Barre2V.png" />
@@ -43,9 +52,43 @@
     <None Remove="image_potions\potion_rouge.png" />
     <None Remove="image_potions\potion_vert.png" />
     <None Remove="image_potions\potion_violet.png" />
+    <None Remove="soundtrack\music_fond.mp3" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="soundtrack\music_fond.mp3">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="animationFinal\animation nouveau final\animation champignon mechant\champiAW1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="animationFinal\animation nouveau final\animation champignon mechant\champiAW2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="animationFinal\animation nouveau final\animation champignon mechant\champiAW3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="animationFinal\animation nouveau final\animtion champu. fuit\champiFW1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="animationFinal\animation nouveau final\animtion champu. fuit\champiFW2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="animationFinal\animation nouveau final\hero_animation\main_hero1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="animationFinal\animation nouveau final\hero_animation\main_hero2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="animationFinal\animation nouveau final\hero_animation\main_hero3.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="animationFinal\animation nouveau final\hero_animation\main_hero4.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Image\Barre0V.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

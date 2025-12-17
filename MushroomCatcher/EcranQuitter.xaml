@@ -7,18 +7,29 @@
         mc:Ignorable="d"
         Height="600" Width="800">
     <Grid>
-        
+
         <Grid.Background>
             <ImageBrush ImageSource="/Image/Menu.png"/>
         </Grid.Background>
 
-        <Button x:Name="ButRetourQuitter" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" Width="180" Height="51" Click="ButRetourQuitter_Click">
-            <Image Source="/Image/Retour.png"/>
+        <Button x:Name="ButRetourQuitter" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="194,329,0,0" VerticalAlignment="Top" Width="184" Height="53" Click="ButRetourQuitter_Click">
+            <Image Source="/Image/Retour.png" Height="42" Width="144"/>
         </Button>
-        
-        <Button x:Name="ButValiderQuitter" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Center" Margin="0,485,0,0" VerticalAlignment="Top" Width="180" Height="51" Click="Button_Click">
+
+        <Button x:Name="ButValiderQuitter" Background="#00000000" BorderBrush="{x:Null}" HorizontalAlignment="Left" Margin="420,334,0,0" VerticalAlignment="Top" Width="180" Height="50" Click="Button_Click" RenderTransformOrigin="0.5,0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.471"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
             <Image Source="/Image/Oui.png"/>
         </Button>
+
+        <TextBox HorizontalAlignment="Left" Margin="194,287,0,0" TextWrapping="Wrap" Text="Voulez-vous quitter le jeu ?" VerticalAlignment="Top" Width="405" Background="#00000000" BorderBrush="{x:Null}" Foreground="White" FontSize="30" FontWeight="Bold"
+          />
 
     </Grid>
 </UserControl>

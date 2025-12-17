@@ -43,10 +43,6 @@
             </TextBlock>
         </StackPanel>
 
-        <Image x:Name="Player" 
-               Source="/image_gameplay/main_Hero.png" 
-               Width="99" Height="120" 
-               Canvas.Left="24" Canvas.Top="102" />
 
         <Button x:Name="ButBoutique" 
                 Canvas.Right="10" Canvas.Bottom="60" 
@@ -78,11 +74,17 @@
                Source="/image_gameplay/mushroom_sad.png" 
                Stretch="Fill" Canvas.Top="238" Width="127"/>
 
-        <Image x:Name="mushroomBoss" 
-               Tag="ennemi"
-               Height="327" Canvas.Left="1298" 
-               Source="/Image/GigaBoss.png" 
-               Stretch="Fill" Canvas.Top="40" Width="354"/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0" Canvas.Left="1694" Canvas.Top="7">
+            <TextBlock Text="Volume Musique" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Center"/>
+            <Slider x:Name="SliderVolume" 
+            Minimum="0" 
+            Maximum="1" 
+            Value="1"
+            Height="104" 
+            Width="150"
+            ValueChanged="SliderVolume_ValueChanged"/>
+        </StackPanel>
+        <Image x:Name="Player" Height="148" Canvas.Left="333" Source="/animationFinal/animation nouveau final/nouveau Hero animation/main_hero1.png" Stretch="Fill" Canvas.Top="216" Width="103" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
     </Canvas>
 </Window>

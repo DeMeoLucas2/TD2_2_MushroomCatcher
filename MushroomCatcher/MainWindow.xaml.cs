@@ -77,17 +77,20 @@ namespace MushroomCatcher
 
         private void AfficheRetourAuJeu(object sender, RoutedEventArgs e)
         {
+            jeuWindow.RelancerLeJeu();
             jeuWindow.Show(); // associe l'écran au conteneur
         }
 
         public void AfficheBoutique(object sender, RoutedEventArgs e)
         {
+            jeuWindow.ArreterLeJeu();
             jeuWindow.Hide();
             EcranBoutique uc = new EcranBoutique(); // crée et charge l'écran de la boutique
             ZoneJeu.Content = uc; // associe l'écran au conteneur
             uc.ButVendre.Click += jeuWindow.Vendre;
             uc.ButRetourBoutique.Click += AfficheRetourAuJeu; // retourne à l'écran de jeu            
         }
+
 
         private void AfficheRetourBoutique(object sender, RoutedEventArgs e)
         {

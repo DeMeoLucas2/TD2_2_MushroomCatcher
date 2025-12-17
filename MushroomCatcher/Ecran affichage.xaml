@@ -12,15 +12,15 @@
             <ImageBrush ImageSource="/Image/Menu.png"/>
         </Grid.Background>
 
-        <Button x:Name="ButJouer" HorizontalAlignment="Left" Margin="90,500,0,0" VerticalAlignment="Top" Background="#00000000" Click="ButJouer_Click" Width="180" Height="51" BorderBrush="{x:Null}">
+        <Button x:Name="ButJouer" HorizontalAlignment="Left" Margin="76,496,0,0" VerticalAlignment="Top" Background="#00000000" Click="ButJouer_Click" Width="180" Height="51" BorderBrush="{x:Null}">
             <Image Source="/Image/Jouer.png"/>
         </Button>
 
-        <Button x:Name="ButCredit" HorizontalAlignment="Left" Margin="300,500,0,0" VerticalAlignment="Top" Background="#00000000" Click="ButCredit_Click" Width="180" Height="51" BorderBrush="{x:Null}">
+        <Button x:Name="ButCredit" HorizontalAlignment="Center" Margin="0,496,0,0" VerticalAlignment="Top" Background="#00000000" Click="ButCredit_Click" Width="180" Height="51" BorderBrush="{x:Null}">
             <Image Source="/Image/Credit.png"/>
         </Button>
 
-        <Button x:Name="ButQuitter" HorizontalAlignment="Left" Margin="550,500,0,0" VerticalAlignment="Top" Background="Transparent" Click="ButQuitter_Click" Width="180" Height="51" BorderBrush="{x:Null}">
+        <Button x:Name="ButQuitter" HorizontalAlignment="Left" Margin="542,500,0,0" VerticalAlignment="Top" Background="Transparent" Click="ButQuitter_Click" Width="166" Height="43" BorderBrush="{x:Null}">
             <Image Source="/Image/Quitter.png"/>
 
         </Button>

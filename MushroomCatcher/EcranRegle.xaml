@@ -20,15 +20,15 @@
 
         <Label HorizontalAlignment="Center" VerticalAlignment="Center" Height="115" Width="457">
             <TextBlock x:Name="TextRegle" Height="115" Width="457" FontSize="16">
-                    Tuer des champignons
-                <LineBreak />
-                    Récupérer les potions laissées par les champignons tués
-                <LineBreak />
-                    Vendre les potions
-                <LineBreak />
-                    Respecter un quota de potions à vendre
-                <LineBreak />
-                    Ne pas mourir de la main des champignons
+            Tuer des champignons
+<LineBreak />
+            Récupérer les potions laissées par les champignons tués
+<LineBreak />
+            Vendre les potions pour obtenir des points
+<LineBreak />
+            Obtenir  le plus de point possible
+<LineBreak />
+            Survivre fasse aux champignons
             </TextBlock>
         </Label>
 
